@@ -1,4 +1,4 @@
-package restapiboot.app.controller;
+package in.co.bytehub.restapi.app.controller;
 
 import java.util.NoSuchElementException;
 
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import in.co.bytehub.restapi.app.customexception.ElementNotFound;
+import in.co.bytehub.restapi.app.model.Topic;
+import in.co.bytehub.restapi.app.service.TopicService;
 import io.micrometer.core.annotation.Timed;
-import restapiboot.app.customexception.ElementNotFound;
-import restapiboot.app.model.Topic;
-import restapiboot.app.service.TopicService;
 
 @RestController
 @RequestMapping("/api") // RestController understand that return type will be json then it

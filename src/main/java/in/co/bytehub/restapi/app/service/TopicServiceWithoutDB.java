@@ -1,4 +1,4 @@
-package restapiboot.app.service;
+package in.co.bytehub.restapi.app.service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,7 +7,7 @@ import java.util.List;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
-import restapiboot.app.model.Topic;
+import in.co.bytehub.restapi.app.model.Topic;
 
 @Profile("IN_MEMORY")
 @Service

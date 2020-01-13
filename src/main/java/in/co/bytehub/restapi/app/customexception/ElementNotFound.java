@@ -1,4 +1,4 @@
-package restapiboot.app.customexception;
+package in.co.bytehub.restapi.app.customexception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

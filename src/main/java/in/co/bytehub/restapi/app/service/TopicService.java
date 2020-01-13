@@ -1,6 +1,6 @@
-package restapiboot.app.service;
+package in.co.bytehub.restapi.app.service;
 
-import restapiboot.app.model.Topic;
+import in.co.bytehub.restapi.app.model.Topic;
 
 public interface TopicService {
 

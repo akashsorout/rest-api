@@ -1,4 +1,4 @@
-package restapiboot.app.model;
+package in.co.bytehub.restapi.app.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

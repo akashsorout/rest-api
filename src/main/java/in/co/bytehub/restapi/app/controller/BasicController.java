@@ -1,4 +1,4 @@
-package restapiboot.app.controller;
+package in.co.bytehub.restapi.app.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

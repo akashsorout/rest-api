@@ -1,11 +1,11 @@
-package restapiboot.app.service;
+package in.co.bytehub.restapi.app.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
-import restapiboot.app.model.Topic;
-import restapiboot.app.service.repo.TopicRepositoryJPA;
+import in.co.bytehub.restapi.app.model.Topic;
+import in.co.bytehub.restapi.app.service.repo.TopicRepositoryJPA;
 
 @Profile("DB")
 @Service

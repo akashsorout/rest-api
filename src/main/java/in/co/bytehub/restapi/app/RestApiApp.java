@@ -1,4 +1,4 @@
-package restapiboot.app;
+package in.co.bytehub.restapi.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
