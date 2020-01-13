@@ -1,6 +1,5 @@
 package restapiboot.app.controller;
 
-import java.lang.reflect.Method;
 import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,15 +14,14 @@ import org.springframework.web.bind.annotation.RestController;
 import io.micrometer.core.annotation.Timed;
 import restapiboot.app.customexception.ElementNotFound;
 import restapiboot.app.model.Topic;
-import restapiboot.app.service.TopicServiceWithDB;
-import restapiboot.app.service.TopicServiceWithoutDB;
+import restapiboot.app.service.TopicService;
 
 @RestController
 @RequestMapping("/api") // RestController understand that return type will be json then it
 public class TopicRestController { // automatically return object in json format.
 
 	@Autowired
-	private TopicServiceWithoutDB topicservice;
+	private TopicService topicservice;
 
 	@RequestMapping(value = "/topics") // No need to @ResponseBody or something.
 	public ResponseEntity<Iterable<Topic>> getAllTopics() {
@@ -32,7 +30,8 @@ public class TopicRestController { // automatically return object in json format
 
 	}
 
-	@Timed(value = "API.Topic.Endpoint", extraTags = { "method", "getTopic" }, percentiles = { .25, .5, .75, .99 }, histogram = true)
+	@Timed(value = "API.Topic.Endpoint", extraTags = { "method", "getTopic" }, percentiles = { .25, .5, .75,
+			.99 }, histogram = true)
 	@RequestMapping("/topics/{id}")
 	public Topic getTopic(@PathVariable int id) throws ElementNotFound {
 		Topic out = null;
@@ -47,7 +46,7 @@ public class TopicRestController { // automatically return object in json format
 	}
 
 	@RequestMapping(method = RequestMethod.POST, value = "/topics")
-	public ResponseEntity addTopic(@RequestBody Topic topic) {
+	public ResponseEntity<Void> addTopic(@RequestBody Topic topic) {
 		topicservice.addTopic(topic);
 		return new ResponseEntity<>(HttpStatus.CREATED);
 	}
@@ -59,7 +58,7 @@ public class TopicRestController { // automatically return object in json format
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE, value = "/topics/{id}")
-	public ResponseEntity deleteTopic(@PathVariable int id) {
+	public ResponseEntity<Void> deleteTopic(@PathVariable int id) {
 
 		try {
 			topicservice.deleteTopic(id);

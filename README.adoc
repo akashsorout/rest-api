@@ -1,5 +1,16 @@
-** Basic Rest App **
+Run Configuration
 
-- prometheus
-- mysql
+	Using 2 profiles for storage
+	1. IN_MEMORY
+	2. DB
 
+
+provide below VM arguments:
+
+`-Dspring.profiles.active=IN_MEMORY` to run application in 	`IN_MEMORY` storage mode
+
+
+`-Dspring.profiles.active=DB` to run application in `DB` storage mode
+
+-- MYSQL data base is used in this application for now pointing to locahost `springAppdb` database  
+  
