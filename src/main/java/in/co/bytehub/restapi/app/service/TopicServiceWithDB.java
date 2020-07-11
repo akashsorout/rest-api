@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import in.co.bytehub.restapi.app.model.Topic;
-import in.co.bytehub.restapi.app.service.repo.TopicRepositoryJPA;
+import in.co.bytehub.restapi.app.repo.TopicRepositoryJPA;
 
 @Profile("DB")
 @Service

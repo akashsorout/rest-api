@@ -1,4 +1,4 @@
-package in.co.bytehub.restapi.app.service.repo;
+package in.co.bytehub.restapi.app.repo;
 
 import in.co.bytehub.restapi.app.model.Topic;
 import org.springframework.context.annotation.Profile;
