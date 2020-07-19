@@ -1,5 +1,7 @@
 package in.co.bytehub.restapi.app.service;
 
+import javax.transaction.Transactional;
+
 import in.co.bytehub.restapi.app.model.Topic;
 import in.co.bytehub.restapi.app.repo.TopicRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,11 +10,12 @@ import org.springframework.stereotype.Service;
 
 @Profile("DB")
 @Service
+@Transactional
 public class TopicServiceWithDB implements TopicService {
-	
+
 	@Autowired
 	public TopicRepositoryJPA repo;
-	
+
 	/* (non-Javadoc)
 	 * @see restapiboot.app.service.TopicService#getAllTopics()
 	 */
@@ -20,8 +23,8 @@ public class TopicServiceWithDB implements TopicService {
 	public Iterable<Topic> getAllTopics(){
 		return repo.findAll();
 	}
-	
-	
+
+
 	/* (non-Javadoc)
 	 * @see restapiboot.app.service.TopicService#getTopic(int)
 	 */
@@ -32,9 +35,10 @@ public class TopicServiceWithDB implements TopicService {
 		System.out.println("topic.getName() = " + topic.getName());
 		System.out.println("topic.getTeachers() = " + topic.getTeachers());
 		System.out.println("topic.getChapters() = " + topic.getChapters());
+        topic.setName(topic.getName() + "!");
 		return topic;
 	}
-	
+
 	/* (non-Javadoc)
 	 * @see restapiboot.app.service.TopicService#addTopic(restapiboot.app.model.Topic)
 	 */
@@ -60,5 +64,5 @@ public class TopicServiceWithDB implements TopicService {
 	public void deleteTopic(int id) {
 		repo.deleteById(id);
 	}
-	
+
 }
