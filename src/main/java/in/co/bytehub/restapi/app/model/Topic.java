@@ -1,9 +1,15 @@
 package in.co.bytehub.restapi.app.model;
 
+
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Topic {
@@ -12,7 +18,11 @@ public class Topic {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String name;
-	
+	@ElementCollection
+	private List<Chapter> chapters;
+	@OneToMany(cascade = CascadeType.ALL)
+	private List<Teacher> teachers;
+
 	
 	public int getId() {
 		return id;
@@ -35,10 +45,24 @@ public class Topic {
 		this.name=name;
 	}
 	public Topic() {
-	
+
 	}
-	
-	
-	
-	
+
+	public List<Chapter> getChapters() {
+		return chapters;
+	}
+
+	public Topic setChapters(List<Chapter> chapters) {
+		this.chapters = chapters;
+		return this;
+	}
+
+	public List<Teacher> getTeachers() {
+		return teachers;
+	}
+
+	public Topic setTeachers(List<Teacher> teachers) {
+		this.teachers = teachers;
+		return this;
+	}
 }

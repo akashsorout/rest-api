@@ -1,11 +1,10 @@
 package in.co.bytehub.restapi.app.service;
 
+import in.co.bytehub.restapi.app.model.Topic;
+import in.co.bytehub.restapi.app.repo.TopicRepositoryJPA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
-
-import in.co.bytehub.restapi.app.model.Topic;
-import in.co.bytehub.restapi.app.repo.TopicRepositoryJPA;
 
 @Profile("DB")
 @Service
@@ -28,8 +27,12 @@ public class TopicServiceWithDB implements TopicService {
 	 */
 	@Override
 	public Topic getTopic(int id){
-		
-		return repo.findById(id).get();
+
+		Topic topic = repo.findById(id).get();
+		System.out.println("topic.getName() = " + topic.getName());
+		System.out.println("topic.getTeachers() = " + topic.getTeachers());
+		System.out.println("topic.getChapters() = " + topic.getChapters());
+		return topic;
 	}
 	
 	/* (non-Javadoc)
