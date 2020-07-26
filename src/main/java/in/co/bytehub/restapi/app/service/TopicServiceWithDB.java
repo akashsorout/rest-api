@@ -13,8 +13,11 @@ import org.springframework.stereotype.Service;
 @Transactional
 public class TopicServiceWithDB implements TopicService {
 
-	@Autowired
 	public TopicRepositoryJPA repo;
+
+	public TopicServiceWithDB(TopicRepositoryJPA repo){
+		this.repo = repo;
+	}
 
 	/* (non-Javadoc)
 	 * @see restapiboot.app.service.TopicService#getAllTopics()
